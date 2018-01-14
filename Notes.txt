@@ -1,0 +1,13 @@
+Items I want the user to be able to use:
+
+User Header Row | <div class="user-H"> ... </div> | [H: ... :H] | on hold
+User Body Text  | <div class="user-B"> ... </div> | [B: ... :B] | on hold
+Bold            | <b> ... </b>                    | [b: ... :b] | in-progress
+Italics         | <i> ... </i>                    | [i: ... :i] | in-progress
+Internal Link   | <a href="#"> ... </a>           | [F: ... :F] | implemented
+External Link   | <a href="#"> ... </a>           |     ...     | coming soon
+Image           | <img src="#" />                 |     ...     | coming soon
+Subscript       | <sub> ... </sub>                | [s: ... :s] | implemented
+Superscript     | <sup> ... </sup>                | [S: ... :S] | implemented
+Quote           | <blockquote> ... </blockquote>  | [q: ... :q] | implemented
+Paragraph       | <p> ... </p>                    | [p: ... :p] | implemented

@@ -1,0 +1,199 @@
+/* General Tag Level Styling */
+
+
+
+p {
+  font-family:sans-serif;
+  color: #E3E3E3;
+  font-size: 1.1em;
+  text-align: justify;
+  margin-bottom: 1em;
+}
+
+a:link {
+  color: #B3F5FF;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #B3F5FF;
+  text-decoration: none;
+}
+
+a:active {
+  color: #B3F5FF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #F7FFB3;
+  text-decoration: none;
+}
+
+hr {
+  display: block;
+  color: #B3F5FF;
+  margin-top: 0.25em;
+  margin-bottom: 0.75em;
+  border: 2px dashed #B3F5FF;
+}
+
+h3 {
+  margin-top: 1em;
+  color: #EEF2BF;
+}
+
+textarea.edit-submit {
+  background-color: #292929;
+  border: 3px dashed #F7FFB3;
+  color: #E3E3E3;
+  font-family:sans-serif;
+  float:left;
+  text-align: left;
+}
+
+input[type=submit].edit-submit {
+  background-color: #F7FFB3;
+  cursor: pointer;
+  height: 50px;
+  width: 100px;
+  float:left;
+  display:inline;
+  clear:left;
+  color: #626273;
+  border: none;
+}
+
+#cancel-button a {
+  background-color: #B3FFFE;
+  cursor:pointer;
+  white-space:normal;
+  height: 50px;
+  width: 100px;
+  float:left;
+  display:inline;
+  color: #626273;
+  border: none;
+  text-align:center;
+  vertical-align: middle;
+  line-height: 49px;
+}
+
+
+
+
+
+
+.topButton {
+  border:none;
+  display:inline-block;
+  outline:0;
+  padding:8px 16px;
+  vertical-align:middle;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  background-color:inherit;
+  text-align:center;
+  cursor:pointer;
+  white-space:nowrap;
+  font-size:24px;
+}
+
+
+
+
+
+
+
+
+/* new stuff */
+body {
+  background-color: #303131;
+  font-family:sans-serif;
+  color: #E3E3E3;
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0;
+}
+
+.topBar {
+    color: #fff;
+    background-color: #212121;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+
+.main-menu-container {
+    position: absolute;
+    display: inline-block;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#main-menu {
+
+    list-style: none;
+    font-size: 1rem;
+    font-family: sans-serif;
+    cursor:pointer;
+}
+
+#main-menu li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.title-container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+header {
+  background-color: #383838;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  height: 4%;
+}
+
+header h4 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+#submenu {
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+#submenu li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.bodytext {
+  font-family:sans-serif;
+  color: #E3E3E3;
+  font-size: 0.9em;
+  width: 80%;
+  text-align: justify;
+  position: absolute;
+  top: 18%;
+  left: 10%;
+}
