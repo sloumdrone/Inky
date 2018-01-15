@@ -48,8 +48,10 @@ textarea.edit-submit {
   border: 3px dashed #F7FFB3;
   color: #E3E3E3;
   font-family:sans-serif;
-  float:left;
-  text-align: left;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2%;
 }
 
 input[type=submit].edit-submit {
@@ -155,6 +157,11 @@ body {
     transform: translateY(-50%);
 }
 
+.title-container * {
+    display: inline-block;
+    margin: 0;
+}
+
 header {
   background-color: #383838;
   margin: 0;
@@ -196,4 +203,36 @@ header h4 {
   position: absolute;
   top: 18%;
   left: 10%;
+  padding-bottom: 5%;
+}
+
+
+li form input[name=pagename] {
+    background-color: #292929;
+    border: 1px dashed #F7FFB3;
+    color: #E3E3E3;
+    font-family:sans-serif;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    height: 2rem;
+    padding-left: 10px;
+}
+
+li form input[name=submit] {
+    background-color: #ed8f8f;
+    border: 1px dashed #F7FFB3;
+    color: #303131;
+    font-family:sans-serif;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 2rem;
+}
+
+.edit-instructions {
+    height: 100%;
+    width: 35%;
+    display: inline-block;
+    float: right;
+    text-align: right;
 }

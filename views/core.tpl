@@ -32,7 +32,7 @@
 
         <header>
             <h4>{{upcasename}}</h4>
-            %if pagename not in ['main','about']:
+            %if pagename not in ['main','about','Inky_Markup']:
                 <ul id="submenu">
                     <li> <a href="/delete/{{pagename}}" onclick="return confirm('Are you sure you want to delete {{pagename}}?')">Delete</a></li>
                     <li> | </li>

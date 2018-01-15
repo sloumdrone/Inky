@@ -35,15 +35,16 @@
 
         <!-- Main page content -->
         <div class="bodytext" id="PageEntry">
-            <p>
-                <form action="/edit/{{pagename}}", method="POST">
-                    <textarea name="PageData" rows="25" cols="100" placeholder="Enter wiki text..." required class="edit-submit"></textarea>
-                    <input type="Submit" value="Publish" class="edit-submit">
-                    <div  id="cancel-button">
-                        <a href="/wiki/{{pagename}}">Cancel</a>
-                    </div>
-                </form>
-            </p>
+            <form action="/edit/{{pagename}}", method="POST">
+                <textarea name="PageData" rows="25" cols="100" placeholder="Enter wiki text..." required class="edit-submit"></textarea>
+                <input type="Submit" value="Publish" class="edit-submit">
+                <div  id="cancel-button">
+                    <a href="/wiki/main">Cancel</a>
+                </div>
+            </form>
+            <div class="edit-instructions">
+                Learn to edit articles with <a href="/wiki/Inky_Markup" target="_blank">Inky Markup</a><br> <sub>(Opens in new window)</sub>
+            </div>
         </div>
     </body>
 </html>
