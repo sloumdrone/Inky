@@ -117,6 +117,7 @@ body {
   font-size: 0.9em;
   margin: 0;
   padding: 0;
+  line-height:
 }
 
 .topBar {
@@ -235,4 +236,12 @@ li form input[name=submit] {
     display: inline-block;
     float: right;
     text-align: right;
+}
+
+p, li, ul {
+    line-height: 140%;
+}
+
+.bodytext li {
+    margin: 1%;
 }
