@@ -4,6 +4,7 @@
 
 from bottle import route, run, template, static_file, post, request, get
 import os.path, os
+import re
 
 #####---------------------Main-page-view-functions-------------------------#####
 
@@ -76,16 +77,19 @@ def servestyle(css):
 
 @route('/wiki/search', method='POST')
 def search():
-
     pagename = request.forms.get('pagename')
     pagename = pagename.replace(' ','_')
-    #Serves either an edit dialog or an existing page
-    if not os.path.isfile('./content/' + str(pagename)):
-        return template('editcreate', pagename=pagename)
-    else:
-        with open('./content/' + pagename, 'r') as textfile:
-            bodytext = textfile.read()
-        return template('core', pagename=pagename, bodytext=bodytext)
+    results = findPages(pagename)
+    found = False
+
+    for item in results:
+        if item == pagename:
+            with open('./content/' + pagename, 'r') as textfile:
+                bodytext = textfile.read()
+            return template('core', pagename=pagename, bodytext=bodytext)
+        else:
+            found = False
+    return template('search-results', results=results, pagename=pagename, found=found)
 
 
 
@@ -163,6 +167,7 @@ def stripHTML(string):
     else:
         return string
 
+
 def swapScript(string,direction='FromHTML'):
     #Direction takes: 'FromHTML' and any other value (to go ToHTML)
     #Swaps html for wikiCode and vice versa
@@ -185,6 +190,15 @@ def swapScript(string,direction='FromHTML'):
         else:
             string = string.replace(x[1],x[0])
     return string
+
+
+def findPages(string):
+    #Used in serach
+    matches = []
+    for item in os.listdir('./content/'):
+        if re.search(r''+string,item,re.I):
+            matches.append(item)
+    return matches
 
 
 #####---------------------------Run-the-server-----------------------------#####

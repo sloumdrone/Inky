@@ -3,82 +3,86 @@
 
 
 p {
-  font-family:sans-serif;
-  color: #E3E3E3;
-  font-size: 1.1em;
-  text-align: justify;
-  margin-bottom: 1em;
+    font-family:sans-serif;
+    color: #E3E3E3;
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+a {
+    cursor: pointer;
 }
 
 a:link {
-  color: #B3F5FF;
-  text-decoration: none;
+    color: #B3F5FF;
+    text-decoration: none;
 }
 
 a:visited {
-  color: #B3F5FF;
-  text-decoration: none;
+    color: #B3F5FF;
+    text-decoration: none;
 }
 
 a:active {
-  color: #B3F5FF;
-  text-decoration: none;
+    color: #B3F5FF;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #F7FFB3;
-  text-decoration: none;
+    color: #F7FFB3;
+    text-decoration: none;
 }
 
 hr {
-  display: block;
-  color: #B3F5FF;
-  margin-top: 0.25em;
-  margin-bottom: 0.75em;
-  border: 2px dashed #B3F5FF;
+    display: block;
+    color: #B3F5FF;
+    margin-top: 0.25em;
+    margin-bottom: 0.75em;
+    border: 2px dashed #B3F5FF;
 }
 
 h3 {
-  margin-top: 1em;
-  color: #EEF2BF;
+    margin-top: 1em;
+    color: #EEF2BF;
 }
 
 textarea.edit-submit {
-  background-color: #292929;
-  border: 3px dashed #F7FFB3;
-  color: #E3E3E3;
-  font-family:sans-serif;
-  font-size: 0.9rem;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 2%;
+    background-color: #292929;
+    border: 3px dashed #F7FFB3;
+    color: #E3E3E3;
+    font-family:sans-serif;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2%;
 }
 
 input[type=submit].edit-submit {
-  background-color: #F7FFB3;
-  cursor: pointer;
-  height: 50px;
-  width: 100px;
-  float:left;
-  display:inline;
-  clear:left;
-  color: #626273;
-  border: none;
+    background-color: #F7FFB3;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    float:left;
+    display:inline;
+    clear:left;
+    color: #626273;
+    border: none;
 }
 
 #cancel-button a {
-  background-color: #B3FFFE;
-  cursor:pointer;
-  white-space:normal;
-  height: 50px;
-  width: 100px;
-  float:left;
-  display:inline;
-  color: #626273;
-  border: none;
-  text-align:center;
-  vertical-align: middle;
-  line-height: 49px;
+    background-color: #B3FFFE;
+    cursor:pointer;
+    white-space:normal;
+    height: 50px;
+    width: 100px;
+    float:left;
+    display:inline;
+    color: #626273;
+    border: none;
+    text-align:center;
+    vertical-align: middle;
+    line-height: 49px;
 }
 
 
@@ -86,38 +90,32 @@ input[type=submit].edit-submit {
 
 
 
-.topButton {
-  border:none;
-  display:inline-block;
-  outline:0;
-  padding:8px 16px;
-  vertical-align:middle;
-  overflow:hidden;
-  text-decoration:none;
-  color:inherit;
-  background-color:inherit;
-  text-align:center;
-  cursor:pointer;
-  white-space:nowrap;
-  font-size:24px;
-}
-
-
-
-
-
-
+/* .topButton {
+    border:none;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap;
+    font-size:24px;
+} */
 
 
 /* new stuff */
 body {
-  background-color: #303131;
-  font-family:sans-serif;
-  color: #E3E3E3;
-  font-size: 0.9em;
-  margin: 0;
-  padding: 0;
-  line-height:
+    background-color: #303131;
+    font-family:sans-serif;
+    color: #E3E3E3;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    line-height:
 }
 
 .topBar {
@@ -141,7 +139,7 @@ body {
 #main-menu {
 
     list-style: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: sans-serif;
     cursor:pointer;
 }
@@ -164,13 +162,13 @@ body {
 }
 
 header {
-  background-color: #383838;
-  margin: 0;
-  width: 100%;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  height: 4%;
+    background-color: #383838;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    height: 4%;
 }
 
 header h4 {
@@ -196,15 +194,15 @@ header h4 {
 }
 
 .bodytext {
-  font-family:sans-serif;
-  color: #E3E3E3;
-  font-size: 0.9em;
-  width: 80%;
-  text-align: justify;
-  position: absolute;
-  top: 18%;
-  left: 10%;
-  padding-bottom: 5%;
+    font-family:sans-serif;
+    color: #E3E3E3;
+    font-size: 1rem;
+    width: 80%;
+    text-align: justify;
+    position: absolute;
+    top: 18%;
+    left: 10%;
+    padding-bottom: 5%;
 }
 
 
@@ -244,4 +242,33 @@ p, li, ul {
 
 .bodytext li {
     margin: 1%;
+    font-size: 1rem;
+}
+
+
+@media screen and (max-width: 700px) {
+    .nosmall {
+        display: none !important;
+    }
+
+    .bodytext p, .bodytext li {
+        font-size: 1.35rem;
+    }
+
+    .bodytext h1, .bodytext h2, .bodytext h3 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        height: 7%;
+    }
+
+    header h4 {
+        font-size: 1.4rem;
+    }
+
+    .bodytext {
+        top: 21%;
+        font-size: 1.35rem;
+    }
 }

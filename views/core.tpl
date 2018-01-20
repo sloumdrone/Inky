@@ -5,6 +5,7 @@
         %upcasename = str.title(pagenameSpaces)
         %bodytext = str.strip(bodytext)
         <title>Inky: {{upcasename}}</title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/styles/new-dark-main.css" />
     </head>
     <body>
@@ -12,12 +13,12 @@
         <div class="topBar">
             <div class="title-container">
                 <h1>Inky</h1>
-                <h3>A lightweight wiki engine</h3>
+                <h3 class="nosmall">A lightweight wiki engine</h3>
             </div>
             <div class="main-menu-container">
                 <ul id="main-menu">
                     <li><a href="/wiki/main" class="sideBarItem">Home</a></li>
-                    <li><a href="/wiki/about" class="sideBarItem">About</a></li>
+                    <li class="nosmall"><a href="/wiki/about" class="sideBarItem">About</a></li>
                     <li>
                         <form class="search" action="/wiki/search" method="POST">
                             <input type="text" name="pagename" value="" placeholder="Page Name">
