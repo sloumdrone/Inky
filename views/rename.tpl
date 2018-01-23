@@ -32,14 +32,14 @@
         </header>
 
 
-        <div class="bodytext" id="PageEntry">
-            <p>
-                <form action="/rename/{{pagename}}", method="POST">
-                    <input type="text" name="newpagename" placeholder="New page name" required autofocus>
-                    <input type="Submit" value="Publish" class="edit-submit">
-                </form>
-            </p>
+        <div class="bodytext rename" id="PageEntry">
+            <form action="/rename/{{pagename}}" method="POST" class="rename-form">
+                <input type="text" name="newpagename" placeholder="New page name" required autofocus>
+                <input type="Submit" value="Rename" class="edit-submit">
+                <div  id="cancel-button">
+                    <a href="/wiki/{{pagename}}">Cancel</a>
+                </div>
+            </form>
         </div>
-
     </body>
 </html>

@@ -7,6 +7,7 @@
         <title>Inky: {{upcasename}}</title>
         <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/styles/new-dark-main.css" />
+        <script type="text/javascript" src="/js/main.js"></script>
     </head>
     <body>
         <!-- Site header -->
@@ -35,11 +36,11 @@
             <h4>{{upcasename}}</h4>
             %if pagename not in ['main','about','Inky_Markup']:
                 <ul id="submenu">
-                    <li> <a href="/delete/{{pagename}}" onclick="return confirm('Are you sure you want to delete {{pagename}}?')">Delete</a></li>
+                    <li><a href="/edit/existing/{{pagename}}">Edit</a></li>
                     <li> | </li>
                     <li><a href="/rename/existing/{{pagename}}">Rename</a></li>
                     <li> | </li>
-                    <li><a href="/edit/existing/{{pagename}}">Edit</a></li>
+                    <li> <span class="modal-toggle">Delete</span></li>
                 </ul>
             %end
         </header>

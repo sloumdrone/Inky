@@ -10,28 +10,14 @@ p {
     margin-bottom: 1rem;
 }
 
-a {
+a, .modal-toggle {
     cursor: pointer;
-}
-
-a:link {
-    color: #B3F5FF;
     text-decoration: none;
-}
-
-a:visited {
     color: #B3F5FF;
-    text-decoration: none;
-}
-
-a:active {
-    color: #B3F5FF;
-    text-decoration: none;
 }
 
 a:hover {
     color: #F7FFB3;
-    text-decoration: none;
 }
 
 hr {
@@ -64,7 +50,7 @@ input[type=submit].edit-submit {
     height: 50px;
     width: 100px;
     float:left;
-    display:inline;
+    display:inline-block;
     clear:left;
     color: #626273;
     border: none;
@@ -85,9 +71,35 @@ input[type=submit].edit-submit {
     line-height: 49px;
 }
 
+.rename-form #cancel-button {
+    display: inline-block;
+    vertical-align: top;
+}
 
+.rename-form input[type=submit].edit-submit {
+    background-color: #F7FFB3;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    float:none;
+    display:inline-block;
+    clear:none;
+    color: #626273;
+    border: none;
+    vertical-align: top;
+    font-size: 1rem;
+}
 
+.rename-form input[name=newpagename] {
+    height: 50px;
+    width: 200px;
+    box-sizing: border-box;
+    display: inline-block;
+}
 
+.bodytext.rename {
+    text-align: center;
+}
 
 
 /* .topButton {
@@ -244,6 +256,47 @@ p, li, ul {
     margin: 1%;
     font-size: 1rem;
 }
+
+#modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.75;
+}
+
+.modal-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #626060;
+    border: 4px dashed #B3F5FF;
+    box-sizing: border-box;
+    text-align: center;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 10%;
+    opacity: 1;
+}
+
+#modal p {
+    text-align: center;
+}
+
+#modal form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.hidden {
+    display: none !important;
+}
+
 
 
 @media screen and (max-width: 700px) {

@@ -7,6 +7,12 @@ import os.path, os
 import re
 
 #####---------------------Main-page-view-functions-------------------------#####
+@route('/')
+def home():
+    pagename = 'main'
+    with open('./content/main', 'r') as textfile:
+        bodytext = textfile.read()
+    return template('core', pagename=pagename, bodytext=bodytext)
 
 @route('/wiki/<pagename>')
 def build(pagename='main'):
@@ -26,6 +32,7 @@ def createedit(pagename):
     pagedata = stripHTML(pagedata)
     pagedata = alinkbuild(pagedata)
     pagedata = swapScript(pagedata,'ToHTML')
+    pagename = pagename.lower()
     fo = open('./content/' + pagename, 'w')
     fo.write(str.strip(pagedata))
     fo.close()
@@ -46,7 +53,7 @@ def editExisting(pagename):
 @route('/rename/<pagename>', method='POST')
 def renameExisting(pagename):
     #Renames an existing page and is fed from a function titled 'renameEntry'
-    newName = request.forms.get('newpagename')
+    newName = request.forms.get('newpagename').lower()
     newNameForURL = newName.replace(' ','_')
     os.rename('./content/' + pagename, './content/' + newNameForURL)
     return template('renamecomplete', pagename=pagename, newName=newName, newNameForURL=newNameForURL)
@@ -74,10 +81,15 @@ def servestyle(css):
     #This serves the CSS to the templates
     return static_file(css,root='./styles/')
 
+@route('/js/<js>')
+def servestyle(js):
+    #This serves the js to the templates
+    return static_file(js,root='./js/')
+
 
 @route('/wiki/search', method='POST')
 def search():
-    pagename = request.forms.get('pagename')
+    pagename = request.forms.get('pagename').lower()
     pagename = pagename.replace(' ','_')
     results = findPages(pagename)
     found = False
@@ -91,12 +103,13 @@ def search():
             found = False
     return template('search-results', results=results, pagename=pagename, found=found)
 
-
-
-
-
+#
+##
+###
+####
 #####-------------Functions-for-editor(s)/String-Functions-----------------#####
-
+##--~~
+##--~~
 def alinkbuild(string):
 #Will build hyperlinks from WikiCode entered into the edit textareabox
 #At present this allows for properly nested wikiCode within '[F: ... :F]' tags
@@ -116,7 +129,8 @@ def alinkbuild(string):
         return string
     else:
         return string
-
+##--~~
+##--~~
 def alinkunbuild(string):
 #Deconstructs hyperlinks back into Wikicode for the edit textarea box
     instances = string.lower()
@@ -136,24 +150,8 @@ def alinkunbuild(string):
         return string
     else:
         return string
-
-#old version
-"""def alinkunbuild(string):
-#Deconstructs hyperlinks back into Wikicode for the edit textarea box
-    instances = string.lower()
-    instances = instances.count('<a href=')
-    if instances > 0:
-        for x in range(instances):
-            start = string.lower().find('<a href=')
-            end = string.find('>',start + 1) + 1
-            linktext = string[start:end]
-            print linktext
-            string = string.replace(linktext,'[F: ')
-            string = string.replace('</a>',' :F]')
-        return string
-    else:
-        return string"""
-
+##--~~
+##--~~
 def stripHTML(string):
 #Will strip all html tags from a string
     instances = string.count('<')
@@ -166,8 +164,8 @@ def stripHTML(string):
         return string
     else:
         return string
-
-
+##--~~
+##--~~
 def swapScript(string,direction='FromHTML'):
     #Direction takes: 'FromHTML' and any other value (to go ToHTML)
     #Swaps html for wikiCode and vice versa
@@ -190,8 +188,8 @@ def swapScript(string,direction='FromHTML'):
         else:
             string = string.replace(x[1],x[0])
     return string
-
-
+##--~~
+##--~~
 def findPages(string):
     #Used in serach
     matches = []
@@ -199,8 +197,8 @@ def findPages(string):
         if re.search(r''+string,item,re.I):
             matches.append(item)
     return matches
-
-
+##--~~
+##--~~
 #####---------------------------Run-the-server-----------------------------#####
 if __name__ == '__main__':
     run(host='localhost', port=8080)

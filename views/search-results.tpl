@@ -28,7 +28,7 @@
 
         <!-- Header for this page -->
         <header>
-            <h4>Search results for "{{pagename}}"</h4>
+            <h4>Search results for "{{upcasename}}"</h4>
         </header>
 
 
@@ -36,14 +36,14 @@
             %resultcount = len(results)
             %pagenameSpaces = pagename.replace('_',' ')
             <p>
-                Your search for "<b>{{pagenameSpaces}}</b>" has returned {{resultcount}} results
+                Your search for "<b>{{pagenameSpaces}}</b>" has returned {{resultcount}} results:
             </p>
             <p>
                 %if resultcount:
                     <ul>
                     %for item in results:
                         <li>
-                            <a href="/wiki/{{item}}">{{item.replace('_',' ')}}</a>
+                            <a href="/wiki/{{item}}">{{item.replace('_',' ').title()}}</a>
                         </li>
                     %end
                     </ul>
