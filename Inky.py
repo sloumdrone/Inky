@@ -5,6 +5,7 @@
 from bottle import route, run, template, static_file, post, request, get
 import os.path, os
 import re
+import inkyconfig as cfg
 
 #####---------------------Main-page-view-functions-------------------------#####
 @route('/')
@@ -12,7 +13,7 @@ def home():
     pagename = 'main'
     with open('./content/main', 'r') as textfile:
         bodytext = textfile.read()
-    return template('core', pagename=pagename, bodytext=bodytext)
+    return template('core', pagename=pagename, bodytext=bodytext, options=cfg.inky)
 
 @route('/wiki/<pagename>')
 def build(pagename='main'):
@@ -20,9 +21,11 @@ def build(pagename='main'):
     if not os.path.isfile('./content/' + str(pagename)):
         return template('editcreate', pagename=pagename)
     else:
+        if not re.search(cfg.inky['name_re'],pagename):
+            pagename = 'main'
         with open('./content/' + pagename, 'r') as textfile:
             bodytext = textfile.read()
-        return template('core', pagename=pagename, bodytext=bodytext)
+        return template('core', pagename=pagename, bodytext=bodytext, options=cfg.inky)
 
 
 @route('/edit/<pagename>', method='POST')
@@ -54,9 +57,14 @@ def editExisting(pagename):
 def renameExisting(pagename):
     #Renames an existing page and is fed from a function titled 'renameEntry'
     newName = request.forms.get('newpagename').lower()
-    newNameForURL = newName.replace(' ','_')
-    os.rename('./content/' + pagename, './content/' + newNameForURL)
-    return template('renamecomplete', pagename=pagename, newName=newName, newNameForURL=newNameForURL)
+    if re.search(cfg.inky['name_re'],newName):
+        newNameForURL = newName.replace(' ','_')
+        os.rename('./content/' + pagename, './content/' + newNameForURL)
+        return template('renamecomplete', pagename=pagename, newName=newName, newNameForURL=newNameForURL)
+    else:
+        with open('./content/' + pagename, 'r') as textfile:
+            bodytext = textfile.read()
+        return template('core', pagename=pagename, bodytext=bodytext)
 
 
 @route('/rename/existing/<pagename>')
@@ -67,12 +75,12 @@ def renameEntry(pagename):
 
 @route('/delete/<pagename>')
 def deleteArticle(pagename):
-    if os.path.isfile('./content/' + pagename):
+    if os.path.isfile('./content/' + pagename) and re.search(cfg.inky['name_re'],pagename):
         os.remove('./content/' + pagename)
         deletestatus = 'was successful.'
         return template('deletecomplete', pagename=pagename, deletestatus=deletestatus)
     else:
-        deletestatus = 'failed. The article did not exist.'
+        deletestatus = 'failed. The article did not exist or was not a valid target for deletion.'
         return template('deletecomplete', pagename=pagename, deletestatus=deletestatus)
 
 
@@ -90,18 +98,24 @@ def servestyle(js):
 @route('/wiki/search', method='POST')
 def search():
     pagename = request.forms.get('pagename').lower()
-    pagename = pagename.replace(' ','_')
-    results = findPages(pagename)
-    found = False
+    if re.search(cfg.inky['name_re'],pagename):
+        pagename = pagename.replace(' ','_')
+        results = findPages(pagename)
+        found = False
 
-    for item in results:
-        if item == pagename:
-            with open('./content/' + pagename, 'r') as textfile:
-                bodytext = textfile.read()
-            return template('core', pagename=pagename, bodytext=bodytext)
-        else:
-            found = False
-    return template('search-results', results=results, pagename=pagename, found=found)
+        for item in results:
+            if item == pagename:
+                with open('./content/' + pagename, 'r') as textfile:
+                    bodytext = textfile.read()
+                return template('core', pagename=pagename, bodytext=bodytext)
+            else:
+                found = False
+        return template('search-results', results=results, pagename=pagename, found=found)
+    else:
+        pagename = 'main'
+        with open('./content/' + pagename, 'r') as textfile:
+            bodytext = textfile.read()
+        return template('core', pagename=pagename, bodytext=bodytext)
 
 #
 ##
