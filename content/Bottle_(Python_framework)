@@ -1,6 +1,6 @@
-<p>Bottle is a WSGI micro web-framework for the Python programming language. It is designed to be fast, simple and lightweight, and is distributed as a single file module with no dependencies other than the Python Standard Library. The same module runs with Python 2.5+ and 3.x.</p>
+<p>Bottle is a <a href="/wiki/WSGI">WSGI</a> micro web-framework for the <a href="/wiki/Python">Python</a> programming language. It is designed to be fast, simple and lightweight, and is distributed as a single file module with no dependencies other than the Python Standard Library. The same module runs with Python 2.5+ and 3.x.</p>
 
-<p>It offers request dispatching (routes) with URL parameter support, templates, a built-in web server and adapters for many third-party WSGI/HTTP-server and template engines.</p>
+<p>Bottle offers request dispatching (routes) with URL parameter support, templates, a built-in web server and adapters for many third-party WSGI/HTTP-server and template engines.</p>
 
 <p>It is designed to be lightweight, and to allow development of web applications easily and quickly.</p>
 
@@ -8,8 +8,8 @@
 
 <ul>
 <li>Single file which runs with both Python 2.5+ and 3.x</li>
-<li>Can run as a standalone web server or be used behind ("mounted on") any web server which supports WSGI</li>
+<li>Can run as a standalone <a href="/wiki/web_server">web server</a> or be used behind ("mounted on") any web server which supports WSGI</li>
 <li>Built-in template engine called SimpleTemplate Engine</li>
-<li>Support for JSON client data (for REST and JavaScript clients)</li>
+<li>Support for <a href="/wiki/JSON">JSON</a> client data (for REST and <a href="/wiki/JavaScript">JavaScript</a> clients)</li>
 <li>Plugins for popular databases and key/value stores and other features</li> 
 </ul
