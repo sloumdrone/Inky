@@ -33,7 +33,7 @@
 
         <header>
             <h4>{{upcasename}}</h4>
-            %if pagename not in options['locked_files']:
+            %if pagename.lower() not in options['locked_files']:
                 <ul id="submenu">
                     %if options['edit_ok']:
                         <li><a href="/edit/existing/{{pagename}}">Edit</a></li>
