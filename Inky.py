@@ -17,6 +17,7 @@ def home():
 
 @route('/wiki/<pagename>')
 def build(pagename='main'):
+    print 'build'
     #Serves either an edit dialog or an existing page
     if not os.path.isfile('./content/' + str(pagename)):
         return template('editcreate', pagename=pagename)
@@ -30,6 +31,7 @@ def build(pagename='main'):
 
 @route('/edit/<pagename>', method='POST')
 def createedit(pagename):
+    print 'createedit'
     #Commits the edits supplied to it from 'build' or 'editExisting'
     pagedata = request.forms.get('PageData') #comes in as a string
     pagedata = stripHTML(pagedata)
@@ -45,6 +47,7 @@ def createedit(pagename):
 @route('/edit/existing/<pagename>')
 def editExisting(pagename):
     #Serves an edit page for a pre-existing article
+    print 'editExisting'
     with open('./content/' + pagename, 'r') as textfile:
         bodytext = textfile.read()
         bodytext = alinkunbuild(bodytext)
