@@ -18,7 +18,7 @@
                     <li><a href="/wiki/about" class="sideBarItem">About</a></li>
                     <li>
                         <form class="search" action="/wiki/search" method="POST">
-                            <input type="text" name="pagename" value="" placeholder="Page Name">
+                            <input type="text" name="pagename" value="" placeholder="Page Name" pattern="^[\w\-\s]{1,30}$" title="Must contain only letters, numbers, underscores, & spaces">
                             <input type="submit" name="submit" value="->">
                         </form>
                     </li>
@@ -34,7 +34,7 @@
 
         <div class="bodytext rename" id="PageEntry">
             <form action="/rename/{{pagename}}" method="POST" class="rename-form">
-                <input type="text" name="newpagename" placeholder="New page name" required autofocus>
+                <input type="text" name="newpagename" placeholder="New page name" required autofocus pattern="^[\w\-\s]{1,30}$" title="Must contain only letters, numbers, underscores, & spaces">
                 <input type="Submit" value="Rename" class="edit-submit">
                 <div  id="cancel-button">
                     <a href="/wiki/{{pagename}}">Cancel</a>
