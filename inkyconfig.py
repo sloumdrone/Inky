@@ -3,11 +3,11 @@
 inky = {
     'name_re': '^[\w\-\s\(\)]{1,50}$',
     're_title': 'Must contain only letters, numbers, underscores, & spaces',
-    'locked_files': ['main','about','inky_markup'],
+    'locked_files': ['main','about'],
     'delete_ok': True,
     'edit_ok': True,
-    'rename_ok': True,
-    'num_ok': 0
+    'rename_ok': False,
+    'num_ok': 3
 }
 
 #################################################################################
@@ -32,6 +32,9 @@ inky = {
 ##
 # 6) rename_ok     =>  (True/False)
 #      -- Enable/disable client-side renaming of articles globally.
+#       -- This can be a dangerous option that is not recommended to turn on.
+#        -- Renaming will make any references to the page no longer valid as a
+#         -- recursive search through other pages is not performed.
 ##
 # 7) num_ok        =>  (Integer)
 #      -- Used for proper list display of edit, rename, and delete options.
