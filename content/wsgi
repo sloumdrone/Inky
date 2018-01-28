@@ -1,0 +1,13 @@
+The Web Server Gateway Interface (WSGI) is a specification for simple and universal interface between web servers and web applications or frameworks for the <a href="/wiki/Python">Python</a> programming language. It was originally specified in Python Enhancement Proposal (PEP) 333 authored by Phillip J. Eby, and published on 7 December 2003. It has since been adopted as a standard for Python web application development. The latest version of the specification is v1.0.1, also known as PEP 3333, published on 26 September 2010.
+
+<h3>Background</h3><hr> 
+
+Python web frameworks had been a problem for new Python users since the choice of web framework would limit the choice of usable web servers, and vice versa. Python applications were often designed for only one of CGI, FastCGI, mod_python, or some other custom API of a specific web server. <br><br>
+
+WSGI was created as a low-level interface between <a href="/wiki/web_server">web server</a>s and web applications or frameworks to promote common ground for portable web application development.
+
+<h3>WSGI and Python 3</h3><hr>
+
+The separation of binary and text data in Python 3 poses a problem for WSGI, as it specifies that header data should be strings, while it sometimes needs to be binary and sometimes text. This works in Python 2 where text and binary data both are kept in "string" variables, but in Python 3 binary data is kept in "bytes" variables and "string" variables are for unicode text data. An updated version of the WSGI specification that deals with this is PEP 3333. <br><br>
+
+A reworked WSGI spec Web3 has also been proposed, specified in PEP444. This standard is an incompatible derivative of WSGI designed to work on Python 2.6, 2.7, 3.1+.

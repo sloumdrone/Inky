@@ -2,7 +2,7 @@
 <html>
     <head>
         %upcasename = str.title(pagename)
-        <title>Inky | Rename Complete</title>
+        <title>Inky | Search results</title>
         <link rel="stylesheet" type="text/css" href="/styles/new-dark-main.css" />
     </head>
     <body>
@@ -28,14 +28,33 @@
 
         <!-- Header for this page -->
         <header>
-            <h4>Renaming of {{upcasename}} is complete</h4>
+            <h4>Search results for "{{upcasename}}"</h4>
         </header>
 
 
         <div class="bodytext" id="PageEntry">
+            %resultcount = len(results)
+            %pagenameSpaces = pagename.replace('_',' ')
             <p>
-                Your rename of <b>{{pagename}}</b> to <b><a href="/wiki/{{newNameForURL}}">{{newName}}</a></b> is complete.
+                Your search for "<b>{{pagenameSpaces}}</b>" has returned {{resultcount}} results:
             </p>
+            <p>
+                %if resultcount:
+                    <ul>
+                    %for item in results:
+                        <li>
+                            <a href="/wiki/{{item}}">{{item.replace('_',' ').title()}}</a>
+                        </li>
+                    %end
+                    </ul>
+                    %if not found:
+                        <p>Since no exact match was found for your search term, you may create the page "{{pagenameSpaces}}" by <a href="/wiki/{{pagename}}">clicking here.</a></p>
+                    %end
+                %else:
+                    Since no results were found you may <a href="/wiki/{{pagename}}">click here</a> here to create "{{pagenameSpaces}}".
+                %end
+            </p>
+
         </div>
     </body>
 </html>

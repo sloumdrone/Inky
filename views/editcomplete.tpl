@@ -18,7 +18,7 @@
                     <li><a href="/wiki/about" class="sideBarItem">About</a></li>
                     <li>
                         <form class="search" action="/wiki/search" method="POST">
-                            <input type="text" name="pagename" value="" placeholder="Page Name">
+                            <input type="text" name="pagename" value="" placeholder="Page Name" pattern="^[\w\-\s]{1,30}$" title="Must contain only letters, numbers, underscores, & spaces">
                             <input type="submit" name="submit" value="->">
                         </form>
                     </li>
