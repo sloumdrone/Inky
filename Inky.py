@@ -17,7 +17,6 @@ def home():
 
 @route('/wiki/<pagename>')
 def build(pagename='main'):
-    print 'build'
     #Serves either an edit dialog or an existing page
     if not os.path.isfile('./content/' + str(pagename)):
         return template('editcreate', pagename=pagename)
@@ -31,7 +30,6 @@ def build(pagename='main'):
 
 @route('/edit/<pagename>', method='POST')
 def createedit(pagename):
-    print 'createedit'
     #Commits the edits supplied to it from 'build' or 'editExisting'
     pagedata = request.forms.get('PageData') #comes in as a string
     pagedata = stripHTML(pagedata)
@@ -47,7 +45,6 @@ def createedit(pagename):
 @route('/edit/existing/<pagename>')
 def editExisting(pagename):
     #Serves an edit page for a pre-existing article
-    print 'editExisting'
     with open('./content/' + pagename, 'r') as textfile:
         bodytext = textfile.read()
         bodytext = alinkunbuild(bodytext)
@@ -110,10 +107,10 @@ def search():
             if item == pagename:
                 with open('./content/' + pagename, 'r') as textfile:
                     bodytext = textfile.read()
-                return template('core', pagename=pagename, bodytext=bodytext)
+                return template('core', pagename=pagename, bodytext=bodytext, options=cfg.inky)
             else:
                 found = False
-        return template('search-results', results=results, pagename=pagename, found=found)
+        return template('search-results', results=results, pagename=pagename, found=found, options=cfg.inky)
     else:
         pagename = 'main'
         with open('./content/' + pagename, 'r') as textfile:
@@ -142,7 +139,14 @@ def alinkbuild(string):
                 linkname = linkname.replace(' ','_')
             else:
                 linkname = linktext.replace(' ','_')
-            string = string.replace('[F: ' + linktext + ' :F]', '<a href="/wiki/' + linkname + '">' + linktext + '</a>')
+
+            #deal with aliased links
+            original = linktext
+            if linkname.find('=') >= 1:
+                split = linkname.find('=')
+                linkname = linkname[:split]
+                linktext = linktext[split+1:]
+            string = string.replace('[F: ' + original + ' :F]', '<a href="/wiki/' + linkname + '">' + linktext + '</a>')
         return string
     else:
         return string
@@ -152,17 +156,21 @@ def alinkunbuild(string):
 #Deconstructs hyperlinks back into Wikicode for the edit textarea box
     instances = string.lower()
     instances = instances.count('<a href=')
-    linklist = []
     marker = 0
     if instances > 0:
         for x in range(instances):
-            start = string.lower().find('<a href=',marker)
-            end = string.find('>',start + 1) + 1
-            linklist.append(string[start:end])
+            start = string.lower().find('<a href="/wiki/',marker)
+            end = string.find('">',start + 1) + 1
+            aliasStart = end + 1
+            aliasEnd = string.find('<',end)
+            if string[start+15:end-1] == string[aliasStart:aliasEnd]:
+                string = string.replace(string[start:end+1],'[F: ')
+            else:
+                #deal with aliased links
+                replacee = string[start:end+1]
+                replacement = string[start+15:end-1]
+                string = string.replace(replacee,'[F: ' + replacement + '=')
             marker = end + 1
-        print set(linklist)
-        for y in set(linklist):
-            string = string.replace(y,'[F: ')
         string = string.replace('</a>',' :F]')
         return string
     else:

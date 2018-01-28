@@ -4,9 +4,9 @@ inky = {
     'name_re': '^[\w\-\s\(\)]{1,50}$',
     're_title': 'Must contain only letters, numbers, underscores, & spaces',
     'locked_files': ['main','about','inky_markup'],
-    'delete_ok': False,
-    'edit_ok': False,
-    'rename_ok': False,
+    'delete_ok': True,
+    'edit_ok': True,
+    'rename_ok': True,
     'num_ok': 0
 }
 
