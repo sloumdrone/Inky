@@ -1,6 +1,6 @@
 # Inky
 
-Inky is a Python based wiki utilizing the Bottle microframework. Why another Python wiki (or another wiki at all)? For the fun of it! Also, to improve upon features I found lacking in other lightweight Python wikis. I am targeting the PirateBox/LibraryBox community as a possible use case for this, as I have enjoyed MonkeyWiki on my PirateBox quite a bit, but thought it would be fun to expand on the concept.
+Inky is a Python based wiki utilizing the Bottle micro-framework. Why another Python wiki (or another wiki at all)? For the fun of it! Also, to improve upon features I found lacking in other lightweight Python wikis. I am targeting the PirateBox/LibraryBox community as a possible use case for this, as I have enjoyed MonkeyWiki on my PirateBox quite a bit, but thought it would be fun to expand on the concept.
 
 Requirements:
 ---------------
@@ -23,7 +23,7 @@ The live site for inky wiki was deployed on an AWS server running Apache2. Instr
 Use
 --------------------------------------------------------
 
-Out of the box Inky has an about page and a home/main page describing the wiki and its origins/use. Search has been implemented as the main means of new page creation and page location. If you search for a page and an exact match is not found, you will be shown the closest options and asked if you rather create a page to match your search exactly. InkyMarkup,a  markup syntax based on html, has been created to allow users to create well formatted and pretty articles while simultaneously providing security by stripping out any actual html they might include. Inky handles all of the transpiling between InkyMarkup and HTML (for edit and display respectively) on the backend for you.
+Out of the box Inky has an about page and a home/main page describing the wiki and its origins/use. Search has been implemented as the main means of new page creation and page location. If you search for a page and an exact match is not found, you will be shown the closest options and asked if you rather create a page to match your search exactly. InkyMarkup, a markup syntax based on html, has been created to allow users to create well formatted and pretty articles while simultaneously providing security by stripping out any actual html they might include. Inky handles all of the transpiling between InkyMarkup and HTML (for edit and display respectively) on the backend for you.
 
 As of the most recent version, Inky comes with a config file where the wiki owner can turn on and off features like: user editing, user rename, and user delete. They can also add articles to a global list that prohibits edits of any kind by users (regardless of other settings). They can also edit the regex for the search form. The hope is that the config file will grow as the features grow and allow non-programmers to be able to host and configure the wiki themselves (minus a little bit of regex).
 
@@ -39,7 +39,7 @@ Features
 - HTML not allowed in editor, InkyMarkup has been created for secure article editing
 - Ability to edit, rename, or delete articles (configurable by wiki administrator)
 - An easy to use configuration file
-- A simple but stylish dark themeed look
+- A simple but stylish dark themed look
 
 
 --------------------------------------------------------
