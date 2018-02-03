@@ -43,7 +43,7 @@
                 </div>
             </form>
             <div class="edit-instructions">
-                Learn to edit articles with <a href="/wiki/Inky_Markup" target="_blank">Inky Markup</a><br> <sub>(Opens in new window)</sub>
+                Learn to edit articles with <a href="/wiki/inky_markup" target="_blank">Inky Markup</a><br> <sub>(Opens in new window)</sub>
             </div>
         </div>
     </body>

@@ -146,6 +146,8 @@ def alinkbuild(string):
                 split = linkname.find('=')
                 linkname = linkname[:split]
                 linktext = linktext[split+1:]
+                linkname = linkname.lower()
+                linktext = linktext.lower()
             string = string.replace('[F: ' + original + ' :F]', '<a href="/wiki/' + linkname + '">' + linktext + '</a>')
         return string
     else:

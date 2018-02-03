@@ -1,5 +1,5 @@
 #Delete your current inkyconfig.pyc and save this file (saved as 'inkyconfig.py')
-#The compressed version will automaticaly be created for yoruo system.
+#The compressed version will automatically be created for your system.
 
 inky = {
     'name_re': '^[\w\-\s\(\)]{1,50}$',
