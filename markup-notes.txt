@@ -1,0 +1,17 @@
+
+
+Header Row      | <h3> ... </h3><hr>                   | [h: ... :h]           | implemented
+Bold            | <b> ... </b>                         | [b: ... :b]           | implemented
+Italics         | <i> ... </i>                         | [i: ... :i]           | implemented
+Internal Link   | <a href="/wiki/article"> ... </a>    | [F: ... :F]           | implemented
+Internal Link   | <a href="/wiki/article"> Alias </a>  | [F: article=Alias :F] | implemented
+Subscript       | <sub> ... </sub>                     | [s: ... :s]           | implemented
+Superscript     | <sup> ... </sup>                     | [S: ... :S]           | implemented
+Quote           | <blockquote> ... </blockquote>       | [q: ... :q]           | implemented
+Paragraph       | <p> ... </p>                         | [p: ... :p]           | implemented
+List            | <ul> ... </ul>                       | [L: ... :L]           | implemented
+List item       | <li> ... </li>                       | [l: ... :l]           | implemented
+New Line        | <br />                               | [n: ... :n]           | implemented
+
+Image           | <img src="#" />                      |     ...               | coming soon
+Video           | <video src="#" />                    |     ...               | coming soon
