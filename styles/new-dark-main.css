@@ -316,3 +316,9 @@ p, li, ul {
         width: 80vw;
     }
 }
+
+@media screen and (max-width: 390px) {
+    .notiny {
+        display: none !important;
+    }
+}

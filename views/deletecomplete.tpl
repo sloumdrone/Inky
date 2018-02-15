@@ -10,13 +10,13 @@
         <!-- Site header -->
         <div class="topBar">
             <div class="title-container">
-                <h1>Inky</h1>
-                <h3>A lightweight wiki engine</h3>
+                <a href="/wiki/main"><h1>Inky</h1></a>
+                <h3 class="nosmall">A lightweight wiki engine</h3>
             </div>
             <div class="main-menu-container">
                 <ul id="main-menu">
-                    <li><a href="/wiki/main" class="sideBarItem">Home</a></li>
-                    <li><a href="/wiki/about" class="sideBarItem">About</a></li>
+                    <li class="nosmall"><a href="/wiki/main" class="sideBarItem">Home</a></li>
+                    <li class="notiny"><a href="/wiki/about" class="sideBarItem">About</a></li>
                     <li>
                         <form class="search" action="/wiki/search" method="POST">
                             <input type="text" name="pagename" value="" placeholder="Page Name" pattern="^[\w\-\s]{1,30}$" title="Must contain only letters, numbers, '_', & spaces">
