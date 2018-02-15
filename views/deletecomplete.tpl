@@ -3,6 +3,7 @@
     <head>
         %upcasename = str.title(pagename)
         <title>Inky: Deletion Complete</title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/styles/new-dark-main.css" />
     </head>
 

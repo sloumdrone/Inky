@@ -4,6 +4,7 @@
         %upcasename = str.title(pagename)
         %bodytext = str.strip(bodytext)
         <title>Inky | Edit: {{upcasename}}</title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/styles/new-dark-main.css" />
     </head>
     <body>
