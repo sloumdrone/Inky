@@ -46,6 +46,15 @@ Features
 To-Do
 --------------------------------------------------------
 
+- Implement full user auth/sessions
+- Create a db backend (SQLite), rather than system file storage
 - Add a theme toggle (switch between light, dark, and colorful) and/or config
 - Expand InkyMarkup as needed
 - Add media upload and embed (images, audio, video - in that order)
+
+--------------------------------------------------------
+Modification Options
+--------------------------------------------------------
+
+If you want to add user authentication and session persistence for those users, an easy option is to work the code from [this repo](https://github.com/sloumdrone/bottle-auth-test) into Inky (which is on the official Inky to do list as well). It will provide basic authentication (that can be modified to support security level tastes) and persistent login sessions. User information is stored in a SQLite database. it would also be very possible to convert the raw file system being used by Inky into a system that stores articles in the SQLite db (also a to-do list item).
+
