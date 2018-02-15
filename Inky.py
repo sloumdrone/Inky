@@ -2,7 +2,7 @@
 #----------------InkyWiki---by-Brian-Evans---------------------------------------#
 ################################################################################
 
-from bottle import route, run, template, static_file, post, request, get
+from bottle import route, run, template, static_file, post, request, get, redirect
 import os.path, os
 import re
 import inkyconfig as cfg
@@ -98,24 +98,28 @@ def servestyle(js):
 @route('/wiki/search', method='POST')
 def search():
     pagename = request.forms.get('pagename').lower()
-    if re.search(cfg.inky['name_re'],pagename):
-        pagename = pagename.replace(' ','_')
-        results = findPages(pagename)
-        found = False
 
-        for item in results:
-            if item == pagename:
-                with open('./content/' + pagename, 'r') as textfile:
-                    bodytext = textfile.read()
-                return template('core', pagename=pagename, bodytext=bodytext, options=cfg.inky)
-            else:
-                found = False
-        return template('search-results', results=results, pagename=pagename, found=found, options=cfg.inky)
+    if len(pagename) > 0:
+        if re.search(cfg.inky['name_re'],pagename):
+            pagename = pagename.replace(' ','_')
+            results = findPages(pagename)
+            found = False
+
+            for item in results:
+                if item == pagename:
+                    with open('./content/' + pagename, 'r') as textfile:
+                        bodytext = textfile.read()
+                    return template('core', pagename=pagename, bodytext=bodytext, options=cfg.inky)
+                else:
+                    found = False
+            return template('search-results', results=results, pagename=pagename, found=found, options=cfg.inky)
+        else:
+            pagename = 'main'
+            with open('./content/' + pagename, 'r') as textfile:
+                bodytext = textfile.read()
+            return template('core', pagename=pagename, bodytext=bodytext)
     else:
-        pagename = 'main'
-        with open('./content/' + pagename, 'r') as textfile:
-            bodytext = textfile.read()
-        return template('core', pagename=pagename, bodytext=bodytext)
+        return redirect(request.environ['HTTP_REFERER'])
 
 #
 ##
