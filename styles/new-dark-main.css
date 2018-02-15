@@ -226,6 +226,7 @@ li form input[name=submit] {
     display: inline-block;
     float: right;
     text-align: right;
+    font-size: 1rem;
 }
 
 p, li, ul {
@@ -314,6 +315,15 @@ p, li, ul {
 
     .modal-body {
         width: 80vw;
+    }
+
+    .edit-instructions {
+        height: 100%;
+        width: 35%;
+        display: inline-block;
+        float: right;
+        text-align: right;
+        font-size: 0.75rem;
     }
 }
 
