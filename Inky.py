@@ -151,10 +151,7 @@ def alinkbuild(string):
                 linkname = linkname[:split]
                 linktext = linktext[split+1:]
                 linkname = linkname.lower()
-            if not os.path.isfile('./content/' + str(linkname)):
-                string = string.replace('[F: ' + original + ' :F]', '<a href="/wiki/' + linkname + '" style="color: #ed8f8f;">' + linktext + '</a>')
-            else:
-                string = string.replace('[F: ' + original + ' :F]', '<a href="/wiki/' + linkname + '">' + linktext + '</a>')
+            string = string.replace('[F: ' + original + ' :F]', '<a href="/wiki/' + linkname + '">' + linktext + '</a>')
         return string
     else:
         return string
@@ -179,7 +176,6 @@ def alinkunbuild(string):
                 replacement = string[start+15:end-1]
                 string = string.replace(replacee,'[F: ' + replacement + '=')
             marker = end + 1
-        string = string.replace('" style="color: #ed8f8f;','')
         string = string.replace('</a>',' :F]')
         return string
     else:
